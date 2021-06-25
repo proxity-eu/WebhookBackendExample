@@ -15,6 +15,7 @@ import (
 type webhook struct {
 	Timestamp  time.Time `json:"timestamp"`
 	ID         string    `json:"id"`
+	RegionID   string    `json:"region_id"`
 	Data       string    `json:"data"`
 	DeviceData string    `json:"device_data"`
 }
@@ -48,7 +49,7 @@ func main() {
 
 		w.Header().Add("Content-Type", "application/json; charset=utf-8")
 		enc := json.NewEncoder(w)
-		enc.SetIndent("", "  🐱")
+		enc.SetIndent("", "  ")
 		_ = enc.Encode(items)
 	})
 
